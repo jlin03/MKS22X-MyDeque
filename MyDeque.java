@@ -31,8 +31,21 @@ public class MyDeque<E>{
       }
     }
   }
-  
 
+  public String toString(){
+    String out = "{";
+    int i = start;
+    while(i != end) {
+      out += data[i] + " ";
+      if(i == data.length-1) {
+        i = 0;
+      }
+      else {
+        i++;
+      }
+    }
+    out += "}";
+  }
 
 
 
