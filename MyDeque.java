@@ -26,7 +26,7 @@ public class MyDeque<E>{
       if(start > end) {
         return end + 1 + data.length - start;
       }
-      if(start < end) {
+      else {
         return end - start + 1;
       }
     }
@@ -45,6 +45,7 @@ public class MyDeque<E>{
       }
     }
     out += "}";
+    return out;
   }
 
 
