@@ -1,5 +1,5 @@
 public class MyDeque<E>{
-  private E[] data;
+  public E[] data;
   private int size, start, end;
 
   @SuppressWarnings("unchecked")
@@ -20,6 +20,9 @@ public class MyDeque<E>{
 
   public int size() {
     if(start == end) {
+      if(data[start] != null) {
+        return 1;
+      }
       return 0;
     }
     else {
@@ -43,9 +46,6 @@ public class MyDeque<E>{
       else {
         i++;
       }
-    }
-    if(data[end] != null) {
-      out += data[end] + " ";
     }
     out += "}";
     return out;
@@ -77,8 +77,13 @@ public class MyDeque<E>{
       resize();
     }
     if(start == 0) {
-      start = size;
-      data[start] = element;
+      if(data[start] != null) {
+        start = data.length-1;
+        data[start] = element;
+      }
+      else {
+        data[start] = element;
+      }
     }
     else {
       start--;
