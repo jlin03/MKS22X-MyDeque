@@ -34,7 +34,7 @@ public class MyDeque<E>{
 
   public String toString(){
     String out = "{";
-    int i = start;
+    int i = start;out += data[end] + " ";
     while(i != end) {
       out += data[i] + " ";
       if(i == data.length-1) {
@@ -54,10 +54,10 @@ public class MyDeque<E>{
   @SuppressWarnings("unchecked")
   private void resize() {
     E[] temp = (E[])new Object[data.length * 2 + 1];
-    for(int i = start; i != end;) {
-      temp[i] = data[i];
-      if(i == data.length-1) {
-        i = 0;
+    for(int i = 0; i < data.length-1;) {
+      temp[i] = data[start+i];
+      if(start+i == data.length-1) {
+        start = i*-1;
       }
       else {
         i++;
@@ -66,6 +66,25 @@ public class MyDeque<E>{
     if(data[end] != null) {
       temp[end] = data[end];
     }
+    start = 0;
+    end = data.length-1;
+    size = size();
+    data = temp;
+  }
+
+  public void addFirst(E element){
+    if((start == 0 && end == data.length-1) || start == end+1) {
+      resize();
+    }
+    if(start == 0) {
+      start = size;
+      data[start] = element;
+    }
+    else {
+      start--;
+      data[start] = element;
+    }
+    size = size();
   }
 
 
