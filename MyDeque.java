@@ -44,9 +44,32 @@ public class MyDeque<E>{
         i++;
       }
     }
+    if(data[end] != null) {
+      out += data[end] + " ";
+    }
     out += "}";
     return out;
   }
+
+  @SuppressWarnings("unchecked")
+  private void resize() {
+    E[] temp = (E[])new Object[data.length * 2 + 1];
+    for(int i = start; i != end;) {
+      temp[i] = data[i];
+      if(i == data.length-1) {
+        i = 0;
+      }
+      else {
+        i++;
+      }
+    }
+    if(data[end] != null) {
+      temp[end] = data[end];
+    }
+  }
+
+
+
 
 
 
