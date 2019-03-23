@@ -91,6 +91,28 @@ public class MyDeque<E>{
     }
     size = size();
   }
+  
+  public void addLast(E element){
+	if((start == 0 && end == data.length-1) || start == end+1) {
+      resize();
+    }
+    if(end == data.length-1) {
+      if(data[end] != null) {
+        end = 0;
+        data[end] = element;
+      }
+      else {
+        data[end] = element;
+      }
+    }
+    else {
+      end++;
+      data[end] = element;
+    }
+    size = size();
+  }
+  
+  
 
 
 
