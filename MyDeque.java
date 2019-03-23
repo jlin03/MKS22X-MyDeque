@@ -3,7 +3,7 @@ public class MyDeque<E>{
   private int size, start, end;
 
   @SuppressWarnings("unchecked")
-  public MyDeque(){
+  public MyDeque() {
     data = (E[])new Object[10];
     size = 0;
     start = 0;
@@ -11,7 +11,7 @@ public class MyDeque<E>{
   }
 
   @SuppressWarnings("unchecked")
-  public MyDeque(int initialCapacity){
+  public MyDeque(int initialCapacity) {
     data = (E[])new Object[initialCapacity];
     size = 0;
     start = 0;
@@ -35,7 +35,7 @@ public class MyDeque<E>{
     }
   }
 
-  public String toString(){
+  public String toString() {
 	  System.out.println(start);
 	  System.out.println(end);
     String out = "{";
@@ -72,7 +72,7 @@ public class MyDeque<E>{
     data = temp;
   }
 
-  public void addFirst(E element){
+  public void addFirst(E element) {
     if((start == 0 && end == data.length-1) || start == end+1) {
       resize();
     }
@@ -92,7 +92,7 @@ public class MyDeque<E>{
     size = size();
   }
   
-  public void addLast(E element){
+  public void addLast(E element) {
 	if((start == 0 && end == data.length-1) || start == end+1) {
       resize();
     }
@@ -112,7 +112,7 @@ public class MyDeque<E>{
     size = size();
   }
   
-  public E removeFirst(){
+  public E removeFirst() {
 	E out = data[start];
 	data[start] = null;
 	if(start == data.length-1) {
@@ -124,7 +124,7 @@ public class MyDeque<E>{
 	return out;
   }
   
-  public E removeLast(){
+  public E removeLast() {
 	E out = data[end];
 	data[end] = null;
 	if(end == 0) {
@@ -134,6 +134,14 @@ public class MyDeque<E>{
 		end--;
 	}
 	return out;
+  }
+  
+  public E getFirst() {
+	return data[start];
+  }
+  
+  public E getLast() {
+	return data[end];
   }
   
   
