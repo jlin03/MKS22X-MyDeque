@@ -112,6 +112,30 @@ public class MyDeque<E>{
     size = size();
   }
   
+  public E removeFirst(){
+	E out = data[start];
+	data[start] = null;
+	if(start == data.length-1) {
+		start = 0;
+	}
+	else {
+		start++;
+	}
+	return out;
+  }
+  
+  public E removeLast(){
+	E out = data[end];
+	data[end] = null;
+	if(end == 0) {
+		end = data.length-1;
+	}
+	else {
+		end--;
+	}
+	return out;
+  }
+  
   
 
 
