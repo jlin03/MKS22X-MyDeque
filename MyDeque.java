@@ -36,8 +36,10 @@ public class MyDeque<E>{
   }
 
   public String toString(){
+	  System.out.println(start);
+	  System.out.println(end);
     String out = "{";
-    int i = start;out += data[end] + " ";
+    int i = start;
     while(i != end) {
       out += data[i] + " ";
       if(i == data.length-1) {
@@ -47,6 +49,9 @@ public class MyDeque<E>{
         i++;
       }
     }
+	if(data[end] != null) {
+        out += data[end] + " ";
+    }
     out += "}";
     return out;
   }
@@ -54,17 +59,12 @@ public class MyDeque<E>{
   @SuppressWarnings("unchecked")
   private void resize() {
     E[] temp = (E[])new Object[data.length * 2 + 1];
-    for(int i = 0; i < data.length-1;) {
+    for(int i = 0; i < data.length;) {
       temp[i] = data[start+i];
       if(start+i == data.length-1) {
-        start = i*-1;
+        start = i*-1-1;
       }
-      else {
-        i++;
-      }
-    }
-    if(data[end] != null) {
-      temp[end] = data[end];
+	  i++;
     }
     start = 0;
     end = data.length-1;
