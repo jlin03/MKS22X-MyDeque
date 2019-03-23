@@ -121,6 +121,7 @@ public class MyDeque<E>{
 	else {
 		start++;
 	}
+	size = size();
 	return out;
   }
   
@@ -133,6 +134,7 @@ public class MyDeque<E>{
 	else {
 		end--;
 	}
+	size = size();
 	return out;
   }
   
