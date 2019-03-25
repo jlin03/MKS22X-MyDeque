@@ -9,8 +9,8 @@ public class Calculator {
         storage.addLast(Double.parseDouble(chain[i]));
       }
       else {
-        int two = storage.removeLast();
-        int one = storage.removeLast();
+        double two = storage.removeLast();
+        double one = storage.removeLast();
         storage.addLast(operate(chain[i],one,two));
       }
     }
@@ -45,6 +45,13 @@ public class Calculator {
       return one%two;
     }
     return 0;
+  }
+
+  public static void main(String[] args) {
+    System.out.println(eval("1 2 +"));
+
+
+
   }
 
 
