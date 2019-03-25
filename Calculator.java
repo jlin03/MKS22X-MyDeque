@@ -9,9 +9,10 @@ public class Calculator {
         storage.addLast(Double.parseDouble(chain[i]));
       }
       else {
-
+        int two = storage.removeLast();
+        int one = storage.removeLast();
+        storage.addLast(operate(chain[i],one,two));
       }
-
     }
     return storage.getFirst();
 
