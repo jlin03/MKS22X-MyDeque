@@ -6,6 +6,9 @@ public class Calculator {
     String[] chain = s.split(" ");
     for(int i = 0; i < chain.length; i++) {
       if(isDouble(chain[i])) {
+        storage.addLast(Double.parseDouble(chain[i]));
+      }
+      else {
 
       }
 
@@ -22,6 +25,25 @@ public class Calculator {
     catch(Exception e) {
       return false;
     }
+  }
+
+  public static double operate(String operator, double one, double two) {
+    if(operator.equals("*")) {
+      return one*two;
+    }
+    if(operator.equals("/")) {
+      return one/two;
+    }
+    if(operator.equals("+")) {
+      return one+two;
+    }
+    if(operator.equals("-")) {
+      return one-two;
+    }
+    if(operator.equals("%")) {
+      return one%two;
+    }
+    return 0;
   }
 
 
