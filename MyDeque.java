@@ -111,8 +111,13 @@ public class MyDeque<E>{
       }
     }
     else {
-      end++;
-      data[end] = element;
+	  if(data[end] != null) {
+		end++;
+		data[end] = element;
+	  }
+	  else {
+		data[end] = element;
+	  }
     }
     size = size();
   }
@@ -127,9 +132,7 @@ public class MyDeque<E>{
 		start = 0;
 	}
 	else {
-		if(start != end) {
-			start++;
-		}
+		start++;
 	}
 	size = size();
 	return out;
@@ -145,9 +148,7 @@ public class MyDeque<E>{
 		end = data.length-1;
 	}
 	else {
-		if(start != end) {
-			end--;
-		}
+		end--;
 	}
 	size = size();
 	return out;
