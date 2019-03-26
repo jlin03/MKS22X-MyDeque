@@ -47,12 +47,6 @@ public class Calculator {
     return 0;
   }
 
-  public static void main(String[] args) {
-    System.out.println(eval("1 2 + 3 4 + - 9 *"));
-
-
-
-  }
 
 
 }
