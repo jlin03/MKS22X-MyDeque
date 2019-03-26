@@ -1,7 +1,7 @@
 import java.util.NoSuchElementException;
 public class MyDeque<E>{
   private E[] data;
-  private int size, start, end;
+  public int size, start, end;
 
   @SuppressWarnings("unchecked")
   public MyDeque() {
@@ -129,10 +129,14 @@ public class MyDeque<E>{
 	E out = data[start];
 	data[start] = null;
 	if(start == data.length-1) {
-		start = 0;
+		if(start != end) {
+			start = 0;
+		}
 	}
 	else {
-		start++;
+		if(start != end) {
+			start++;
+		}
 	}
 	size = size();
 	return out;
@@ -145,10 +149,14 @@ public class MyDeque<E>{
 	E out = data[end];
 	data[end] = null;
 	if(end == 0) {
-		end = data.length-1;
+		if(start != end) {
+			end = data.length-1;
+		}
 	}
 	else {
-		end--;
+		if(start != end) {
+			end--;
+		}
 	}
 	size = size();
 	return out;
