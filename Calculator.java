@@ -14,7 +14,7 @@ public class Calculator {
         storage.addLast(operate(chain[i],one,two));
       }
     }
-    return storage.getFirst();
+    return storage.getLast();
 
   }
 
@@ -48,7 +48,7 @@ public class Calculator {
   }
 
   public static void main(String[] args) {
-    System.out.println(eval("1 2 +"));
+    System.out.println(eval("1 2 + 3 4 + - 9 *"));
 
 
 
