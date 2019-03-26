@@ -1,7 +1,7 @@
 import java.util.NoSuchElementException;
 public class MyDeque<E>{
   private E[] data;
-  public int size, start, end;
+  private int size, start, end;
 
   @SuppressWarnings("unchecked")
   public MyDeque() {
